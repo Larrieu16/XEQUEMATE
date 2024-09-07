@@ -1,9 +1,10 @@
 import boardgame.board;
 import boardgame.position;
+import chess.chessMatch;
 
 public class program {
     public static void main(String[] args) {
-        board board = new board(8,8);
-        
+        chessMatch chessMatch = new chessMatch();
+        UI.printBoard(chessMatch.getPieces());
     }
 }
