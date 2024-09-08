@@ -2,7 +2,7 @@ package boardgame;
 import boardgame.board;
 import boardgame.position;
 public class piece {
-    private position position;
+    protected position position;
     private board board;
     public piece(board board)  {
         this.board = board;
