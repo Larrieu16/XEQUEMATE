@@ -6,11 +6,24 @@ import chesspieces.king;
 import chesspieces.rook;
 
 public class chessMatch {
+    private int turn;
+    private color currentPlayer;
     private board board;
     public chessMatch(){
+        turn = 1;
+        currentPlayer = color.BRANCO;
         board = new board(8,8);
         initialSetup();
     }
+
+    public int getTurn(){
+        return turn;
+    }
+
+    public color getCurrentPlayer(){
+        return currentPlayer;
+    }
+
     public chessPiece[][] getPieces(){
         chessPiece[][] mat = new chessPiece[board.getRows()][board.getColumns()];
         for(int i=0;i<board.getRows();i++){
@@ -34,6 +47,7 @@ public class chessMatch {
         validateSourcePosition(source);
         validateTargetPosition(source,target);
         piece capturedPiecce = makeMove(source,target);
+        nextTurn();
         return (chessPiece)capturedPiecce;
     }
 
@@ -48,6 +62,10 @@ public class chessMatch {
         if(!board.thereIsAPiece(position)){
             throw new chessException("Não existe uma peça nessa nessa posição.");
         }
+        if (currentPlayer != ((chessPiece)board.piece(position)).getColor()){
+            throw new chessException("A peça escolhida não é sua.");
+        }
+
         if(!board.piece(position).isThereAnyPossibleMove()){
             throw new chessException("Não existe movimento possíveis para a peça escolhida.");
         }
@@ -58,25 +76,30 @@ public class chessMatch {
         }
     }
 
+    private void nextTurn(){
+        turn++;
+        currentPlayer = (currentPlayer ==  color.BRANCO) ? color.PRETO : color.BRANCO;
+    }
+
 
     private void placeNewPiece(char column, int row, chessPiece piece){
         board.placePiece(piece, new chessPosition(column, row).toPosition());
     }
 
     private void initialSetup(){
-        placeNewPiece('c', 1, new rook(board, color.WHITE));
-        placeNewPiece('c', 2, new rook(board, color.WHITE));
-        placeNewPiece('d', 2, new rook(board, color.WHITE));
-        placeNewPiece('e', 2, new rook(board, color.WHITE));
-        placeNewPiece('e', 1, new rook(board, color.WHITE));
-        placeNewPiece('d', 1, new king(board, color.WHITE));
+        placeNewPiece('c', 1, new rook(board, color.BRANCO));
+        placeNewPiece('c', 2, new rook(board, color.BRANCO));
+        placeNewPiece('d', 2, new rook(board, color.BRANCO));
+        placeNewPiece('e', 2, new rook(board, color.BRANCO));
+        placeNewPiece('e', 1, new rook(board, color.BRANCO));
+        placeNewPiece('d', 1, new king(board, color.BRANCO));
 
-        placeNewPiece('c', 7, new rook(board, color.BLACK));
-        placeNewPiece('c', 8, new rook(board, color.BLACK));
-        placeNewPiece('d', 7, new rook(board, color.BLACK));
-        placeNewPiece('e', 7, new rook(board, color.BLACK));
-        placeNewPiece('e', 8, new rook(board, color.BLACK));
-        placeNewPiece('d', 8, new king(board, color.BLACK));
+        placeNewPiece('c', 7, new rook(board, color.PRETO));
+        placeNewPiece('c', 8, new rook(board, color.PRETO));
+        placeNewPiece('d', 7, new rook(board, color.PRETO));
+        placeNewPiece('e', 7, new rook(board, color.PRETO));
+        placeNewPiece('e', 8, new rook(board, color.PRETO));
+        placeNewPiece('d', 8, new king(board, color.PRETO));
     }
 
 

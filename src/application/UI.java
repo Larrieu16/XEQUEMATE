@@ -1,3 +1,4 @@
+import chess.chessMatch;
 import chess.chessPiece;
 import chess.chessPosition;
 import chess.color;
@@ -55,6 +56,14 @@ public class UI {
         System.out.println("  a b c d e f g h");
     }
 
+    public static void printMatch(chessMatch chessMatch){
+        printBoard(chessMatch.getPieces());
+        System.out.println();
+        System.out.println("Vez: " + chessMatch.getTurn());
+        System.out.println("Aguardando jogador: " + chessMatch.getCurrentPlayer());
+
+    }
+
     public static void printBoard(chessPiece[][] pieces, boolean[][] possibleMoves) {
         for (int i = 0; i < pieces.length; i++) {
             System.out.print((8 - i) + " ");
@@ -74,7 +83,7 @@ public class UI {
             System.out.print("-" + ANSI_RESET);
         }
         else {
-            if (piece.getColor() == color.WHITE) {
+            if (piece.getColor() == color.BRANCO) {
                 System.out.print(ANSI_WHITE + piece + ANSI_RESET);
             }
             else {
