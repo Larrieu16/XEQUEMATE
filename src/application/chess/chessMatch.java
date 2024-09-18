@@ -3,6 +3,7 @@ import boardgame.board;
 import boardgame.piece;
 import boardgame.position;
 import chesspieces.king;
+import chesspieces.pawn;
 import chesspieces.rook;
 
 import java.util.ArrayList;
@@ -195,20 +196,30 @@ public class chessMatch {
     }
 
     private void initialSetup(){
-        placeNewPiece('c', 1, new rook(board, color.BRANCO));
-        placeNewPiece('c', 2, new rook(board, color.BRANCO));
-        placeNewPiece('d', 2, new rook(board, color.BRANCO));
-        placeNewPiece('e', 2, new rook(board, color.BRANCO));
-        placeNewPiece('e', 1, new rook(board, color.BRANCO));
-        placeNewPiece('d', 1, new king(board, color.BRANCO));
+        placeNewPiece('a', 1, new rook(board, color.BRANCO));
+        placeNewPiece('h', 1, new rook(board, color.BRANCO));
+        placeNewPiece('e', 1, new king(board, color.BRANCO));
+        placeNewPiece('a', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('b', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('c', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('d', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('e', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('f', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('g', 2, new pawn(board, color.BRANCO));
+        placeNewPiece('h', 2, new pawn(board, color.BRANCO));
 
 
-        placeNewPiece('c', 7, new rook(board, color.PRETO));
-        placeNewPiece('c', 8, new rook(board, color.PRETO));
-        placeNewPiece('d', 7, new rook(board, color.PRETO));
-        placeNewPiece('e', 7, new rook(board, color.PRETO));
+        placeNewPiece('a', 8, new rook(board, color.PRETO));
         placeNewPiece('e', 8, new rook(board, color.PRETO));
-        placeNewPiece('d', 8, new king(board, color.PRETO));
+        placeNewPiece('h', 8, new king(board, color.PRETO));
+        placeNewPiece('a', 7, new pawn(board, color.PRETO));
+        placeNewPiece('b', 7, new pawn(board, color.PRETO));
+        placeNewPiece('c', 7, new pawn(board, color.PRETO));
+        placeNewPiece('d', 7, new pawn(board, color.PRETO));
+        placeNewPiece('e', 7, new pawn(board, color.PRETO));
+        placeNewPiece('f', 7, new pawn(board, color.PRETO));
+        placeNewPiece('g', 7, new pawn(board, color.PRETO));
+        placeNewPiece('h', 7, new pawn(board, color.PRETO));
     }
 
 
