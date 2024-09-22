@@ -6,6 +6,7 @@ import chesspieces.bishop;
 import chesspieces.king;
 import chesspieces.pawn;
 import chesspieces.rook;
+import chesspieces.knight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -199,6 +200,8 @@ public class chessMatch {
     private void initialSetup(){
         placeNewPiece('a', 1, new rook(board, color.BRANCO));
         placeNewPiece('h', 1, new rook(board, color.BRANCO));
+        placeNewPiece('b', 1, new knight(board, color.BRANCO));
+        placeNewPiece('g', 1, new knight(board, color.BRANCO));
         placeNewPiece('c', 1, new bishop(board, color.BRANCO));
         placeNewPiece('f', 1, new bishop(board, color.BRANCO));
         placeNewPiece('e', 1, new king(board, color.BRANCO));
@@ -214,6 +217,8 @@ public class chessMatch {
 
         placeNewPiece('a', 8, new rook(board, color.PRETO));
         placeNewPiece('h', 8, new rook(board, color.PRETO));
+        placeNewPiece('b', 8, new knight(board, color.PRETO));
+        placeNewPiece('g', 8, new knight(board, color.PRETO));
         placeNewPiece('c', 8, new bishop(board, color.PRETO));
         placeNewPiece('f', 8, new bishop(board, color.PRETO));
         placeNewPiece('e', 8, new king(board, color.PRETO));
