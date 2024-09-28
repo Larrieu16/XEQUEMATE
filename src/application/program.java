@@ -20,6 +20,11 @@ public class program {
 
         while (!chessMatch.getCheckMate()) {
             try {
+                System.out.println("Bem vindo ao jogo de xadrez! ");
+                System.out.println("Coloque as posições em caixa baixa(Low Case).");
+                System.out.println("Peças: (P= Peão; T= Torre; R= Rei; RA= Rainha; B= Bispo; C= Cavalo;) ");
+                System.out.println();
+
                 UI.clearScreen();
                 UI.printMatch(chessMatch, captured);
                 System.out.println();
@@ -36,6 +41,12 @@ public class program {
                 chessPiece capturedPiece = chessMatch.performChessMove(source, target);
                 if(capturedPiece != null){
                     captured.add(capturedPiece);
+                }
+
+                if (chessMatch.getPromoted() != null) {
+                    System.out.print("Coloque a peça para promoção: (B/C/T/RA): ");
+                    String type = sc.nextLine();
+                    chessMatch.replacePromotedPiece(type);
                 }
 
             }

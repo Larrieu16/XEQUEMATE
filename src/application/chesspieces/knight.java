@@ -11,7 +11,7 @@ public class knight extends chessPiece{
     }
     @Override
     public String toString() {
-        return "N";
+        return "C";
     }
     private boolean canMove(position position) {
         chessPiece p = (chessPiece)getBoard().piece(position);
